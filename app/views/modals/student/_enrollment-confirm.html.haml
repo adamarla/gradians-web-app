@@ -1,0 +1,18 @@
+
+#m-enrollment-confirm.modal.fade.regular.row-fluid{ role: :dialog }
+  .span3
+    = image_tag 'notifications/id-card.png', class: 'big-icon'
+  .span8
+    %p.title.underline= 'Confirm Name'
+    %p
+      Your name is most similar to the following names added by your teacher
+    %p
+      Pick your name from the list and press <span class='orange'>That's me!</span>
+    %p
+      However, if none of the names match then press <span class='orange'>Not in the list</span>
+    %p
+      = simple_form_for :enroll, url: "#{merge_path}", remote: true, defaults: { label: false } do |f|
+        #sk-confirm-identity
+        .push-down
+          = simple_button for: "Not in the list", id: 'btn-enroll-exit', class: 'btn-inverse pull-left'
+          = simple_button for: "That's me!", id: 'btn-enroll-me', class: 'btn-primary pull-right', type: :submit

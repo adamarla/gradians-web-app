@@ -1,0 +1,22 @@
+
+##############################################################################
+## Shared between ** all ** roles  
+##############################################################################
+
+lnk-logout :
+
+m-downloads : 
+  show : 
+    menu : user-downloads
+
+lnk-upload :
+  show : 
+    modal : m-upload-what
+
+a-reset-passwd : 
+  show : 
+    modal : m-reset-passwd
+
+a-register : 
+  show : 
+    modal: m-register

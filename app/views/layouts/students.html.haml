@@ -1,0 +1,89 @@
+
+-# Customized markers 
+- s = "#{Gutenberg['server']}"
+- student = current_account.loggable
+
+-# Define contents_for 
+- for j in [:toolbox, :menus, :modals, :notifications]
+  - content_for j do 
+    - klass = (j == :toolbox) ? 'hidden' : ''
+    - partials_f = (j == :toolbox) ? ['generic', 'preview'].map{ |a| "toolbox/#{a}" } : ['student','shared'].map{ |a| "#{j}/#{a}" }
+    %div{ id: j, class: klass }
+      - for f in partials_f
+        - Dir["app/views/#{f}/*.haml"].map{ |x| partial_path(x) }.each do |p| 
+          = render partial: p, locals: { server: s }
+      -# render exceptions here 
+      - if j == :menus 
+        = render partial: 'menus/user/account'
+      - if j == :toolbox
+        = render partial: 'toolbox/grading/left/q-fdb'
+        = render partial: 'toolbox/rubric/buttons'
+        = render partial: 'toolbox/rubric/criterion'
+
+- control_panel = [ {for: 'Main', id: 'a-mobile-intro'},
+                    {for: 'My Work', id: 'a-st-main'},
+                    {for: 'Lessons', id: 'a-courses', class: (current_account.mimics_admin ? nil : 'hidden' )},
+                    {for: 'Enroll', id: 'lnk-enroll-self'},
+                    {for: "Hello, #{student.first_name}", id: 'm-account'} ]
+
+- layout = { left: [ [1, 'students/main'],
+                     [3, 'course/view/filters'],
+                     [5, 'students/stabs'] ],
+             middle: [],
+             right: [],
+             wide: [ ['wait', 'toolbox/generic/wait'],
+                     ['X', nil],
+                     ['Y', nil],
+                     [1, 'course/view/tiles'],
+                     [2, 'course/view/exploded'] ], 
+             superwide: [ [1, 'mobile/intro'] ]}
+
+!!!5
+
+%html{html_attrs}
+  %head 
+    = javascript_include_tag "application", "students"
+    -#%script{ type: 'text/javascript', src: '//cdn.sublimevideo.net/js/2fya70le.js' }
+    %script{ type: "text/x-mathjax-config" } 
+      MathJax.Hub.Register.StartupHook("HTML-CSS Jax Ready", function() {
+      var VARIANT = MathJax.OutputJax["HTML-CSS"].FONTDATA.VARIANT ;
+      VARIANT["normal"].fonts.unshift("MathJax_SansSerif") ;
+      }) ;
+      MathJax.Hub.Config({
+      styles: {
+      "span.mtext" : { "font-size" : "14px" , "font-weight" : 300 }
+      }
+      }) ;
+    = javascript_include_tag "http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"
+    = javascript_include_tag "http://d3js.org/d3.v3.min.js"
+    = stylesheet_link_tag 'application', 'students'
+    = csrf_meta_tag
+
+  %body 
+    = render partial: 'toolbox/generic/spinner'
+    .container-fluid.hidden
+      #control-panel.g-panel.row-fluid{ marker: "#{student.id}" } 
+        .span12
+          .navbar.navbar-inverse
+            .navbar-inner
+              %a.brand.span4{ href: "#"}
+                = image_tag "logo-mit-beta-2.png"
+                #tagline= 'Partners in Practice'
+              %ul.nav.span8.pull-right
+                - for l in control_panel 
+                  %li{ class: ( l[:class].blank? ? 'dropdown' : 'dropdown hidden' ) } 
+                    = simple_link for: l[:for], id: l[:id], icon: l[:icon]
+
+      #desktop.row-fluid
+        - layout.each do |pnl, child|
+          - width = pnl == :wide ? 'span7' : ( pnl == :superwide ? 'span12' : 'span4' )
+          %div{ id: "#{pnl}", class: "g-panel #{width}" }
+            -# Add paginator 
+            = render partial: 'toolbox/custom/paginator', locals: { id: "#{pnl}-paginator", url: '#' }
+            -# Then, add the { left-, middle-, right-, wide- } as specified in layout
+            - child.each do |j|
+              %div{ id: "#{pnl}-#{j.first}" }
+                = render(partial: "#{j.last}") unless j.last.nil?
+
+    - for j in [:toolbox, :menus, :modals, :notifications]
+      = yield j

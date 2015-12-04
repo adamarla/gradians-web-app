@@ -1,0 +1,27 @@
+
+-# 'type' comes from the calling HAML
+
+.row-fluid.nopurge
+  .span9
+    .small-text.white
+      Drag and drop between sets or within a set to change order. Then, click 'Submit'
+  .span3
+    .btn-group
+      = simple_button(for: 'New', class: 'btn-inverse pull-left', id: 'btn-new-criterion') if type == :criteria
+      = simple_button for: 'Update', class: 'btn btn-primary pull-right', id: 'btn-update-assets'
+.row-fluid
+  - unless type == :criteria
+    .span4.used.assets{ id: "#{type}-used" }
+      %h5.white.text-center= "Used #{type}"
+      %ul.serialize
+    .span7.available.assets{ id: "#{type}-available" }
+      %h5.white.text-center= "Other available #{type}"
+      %ul.span5
+      %ul.span5.offset1
+  - if type == :criteria
+    .span6.used.assets{ id: "#{type}-used" }
+      %h5.white.text-center= "Used #{type}"
+      %ul.serialize
+    .span6.available.assets{ id: "#{type}-available" }
+      %h5.white.text-center= "Other available #{type}"
+      %ul.span11

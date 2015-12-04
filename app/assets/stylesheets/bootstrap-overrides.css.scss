@@ -1,0 +1,1596 @@
+
+/*
+  This file is included *before* bootstrap.css.scss
+  Hence, in case of a conflict, the directives defined here take precedence 
+*/ 
+
+$gray: #191919 ; // rgb(25,25,25)
+$lightgray: lighten($gray, 30%) ; // rgb(102,102,102)
+$gradians-blue: #6ca7ab ; // rgb(108,167,171)
+$orange:#ffa500 ; // rgb(255,165,0)
+$panel-color: lighten(black, 17%) ; // rgb(43,43,43)
+$background: darken($panel-color, 12%) ; // rgb(13,13,13)
+$red: #d72323 ; // rgb(215, 35, 35)
+$green: #347235 ; // rgb(87,188,32)
+$deep-blue: #01537d ; // rgb(1,83,125)
+$lightblue: lighten($deep-blue, 23%) ; // rgb(56,188,255) 
+
+.bold { font-weight: 500; } 
+.orange { color: $orange ; }
+.blue { color: $deep-blue ;} 
+.white { color: white }
+
+ul {
+  > li {
+    > .footnote { 
+      text-align: left ;
+      font: {
+        size: 10px ;
+        weight: 300 ;
+      }
+      color: white;
+      margin-top: -4px ;
+      padding-left: 20px ;
+    }
+  }
+  &.nav-tabs { 
+    > li { 
+      background-color: transparent ;
+      > a[data-toggle='tab'] { 
+        text-shadow: none ;
+        color: white ;
+        border: none ; 
+        font-size: 14px ;
+        font-weight: 300 ;
+        cursor: pointer ;
+      } 
+      &.active { 
+        > a[data-toggle='tab'], > a[data-toggle='tab']:focus { 
+          background-color: $deep-blue ;
+          color: white ;
+        } 
+      }
+      &.disabled { 
+        > a[data-toggle='tab'] { 
+          color: $lightgray ;
+          background-color: transparent ;
+          cursor: no-drop ;
+        } 
+      } 
+      &:not([class~='active']) {
+        &:not([class~='disabled']) {
+          > a[data-toggle='tab'] { 
+            &:hover { background-color: $lightgray ; }
+          } 
+        } 
+      } 
+    } 
+  } 
+}
+
+.tabs-left, .tabs-right { 
+  .nav-tabs { 
+    > li {
+      font-size: 12px ; 
+      width: 100% ;
+      > a[data-toggle='tab'] {
+        text-align: left ; 
+        margin-right: 0px ;
+        font: {
+          size: 12px ;
+          weight: 300 ;
+        } 
+        color: white ;
+      }
+      &:hover { 
+        color: $deep-blue ; 
+      } 
+    }
+  } 
+} 
+
+img { 
+  &.big-icon { 
+    padding: 5px ;
+  } 
+}
+
+span.MathJax {
+  cursor: pointer ;
+  display: inline-block ;
+  position: absolute ;
+  background: rgba(43,43,43,0.6);
+  color: white ;
+  border:{
+    radius: 5px ;
+  }
+  padding: 5px ;
+  > div.tex-index { 
+    text-align: center ;
+    font-weight: 500 ; 
+    color: white ;
+    background-color: rgba(1,83,125,0.75) ; 
+    padding: 2px 5px 3px 5px;
+    border-radius: 5px ;
+    float: left ;
+  } 
+}
+
+span.btn-shortcut {
+  padding: 2px 4px ; 
+  background: white ;
+  color: $panel-color ;
+  border-radius: 5px ;
+  font-weight: 500 ;
+}
+
+.carousel:not([id~='how-it-works']), .overlay, .shadow {
+  position: absolute ; 
+  top: 0px ;
+  left: 0px ;
+  width: 600px ;
+}
+
+.carousel:not([id~='how-it-works']), .overlay {
+  height: 800px ;
+}
+
+.shadow { 
+  z-index: 3 ;
+  background: rgba(43,43,43,0.8) ;
+  border:{
+    style: none ;
+    bottom: solid ;
+    color: $deep-blue ;
+    width: 5px ;
+  }
+
+  .ticker { 
+    bottom: 15px ;
+    right: -20px ;
+    color: white ;
+    > * { 
+      text-align: center ;
+      padding: { top: 10px ; left: 5px ; bottom: 10px ; right: 10px ; }
+      font-weight: 300 ;
+    }
+    > #ticker-response {
+      font: { size: 14px ; } 
+      border-radius: 7px ;
+      &:not([class~='graded']) {
+        background: transparent ;
+        border: 2px solid $deep-blue ;
+      }
+      &.graded {
+        background-color: $deep-blue ;
+        border: none ;
+      }
+    }
+
+    > #ticker-student {
+      font: { size: 14px ; variant: small-caps ;}
+    }
+  }
+
+  .typeahead, .ticker {
+    position: absolute ;
+  }
+
+  .typeahead { 
+    bottom: 5px ;
+    > input { 
+      color: white ;
+      background: transparent ;
+      box-shadow: none ;
+      min-height: 30px ;
+      font: { 
+        size: 11px ;
+        family: "Lucida Sans Typewriter", "Lucida Console", "Arial Black", "Droid Dans Mono", monospace ;
+      }
+      border: {
+        radius: 0px ;
+        style: dotted ;
+        width: 2px ;
+        color: white ;
+      }
+    }
+  } 
+}
+
+.overlay {
+  z-index: 2 ;
+}
+
+.carousel {
+  z-index: 0 ;
+}
+
+.title { 
+  font-weight: 300 ;
+  &.boxed { 
+    padding: 8px ;
+    font-size: 15px ;
+    background: rgba(1,83,125,0.5) ; 
+    // border-radius: 5px ;
+  }
+  &:not([class~='boxed']){
+    padding-bottom: 8px ;
+    font-size: 18px ;
+  }
+} 
+
+.description { 
+  font-size: 90% ;
+  padding-top: 4px ;
+}
+
+.kb {
+  padding: 1px 4px ;
+  border-radius: 3px ;
+  background: rgba(255,255,255,0.7) ; 
+  margin-right: 3% ;
+  color: $panel-color ;
+  float: left ;
+  width: 20% ;
+}
+
+.underline {
+  border-bottom: 1px solid $deep-blue ;
+}
+
+.light { 
+  font-weight: 300 ;
+} 
+
+#m-founders {   
+  font-size: 12px ;
+  text-align: justify ;
+  .title { 
+    &.large { font-size: 20px ; }
+    font: { size: 14px ; weight: 400 ; }
+  } 
+} 
+
+#tagline { 
+  text-align: center ;
+  font-size: 12px ;
+  color: #4D4D47 ;
+  max-width: 70% ;
+} 
+
+#big-banner { 
+  color: #4d4d47 ;
+  > h1 { 
+    font: { 
+      size: 40px ; 
+      weight: 300 ;
+    }
+    text-align: center ;
+    line-height: 45px ;
+  }
+  margin: {
+    bottom: 25px ;
+  }
+} 
+
+#product-pitch { 
+  color: #4d4d47 ;
+  font: { 
+    size: 12px ;
+    weight: 300 ;
+  } 
+  line-height: 17px ;
+  > div:first-child, >div:last-child { 
+    margin-top: 30px ;
+  } 
+} 
+
+#live-phone { 
+  > .carousel { 
+    position: relative ;
+    width: 221px ;
+    height: 332px ;
+    margin: { 
+      left: 9px ; 
+      top: -394px ;
+    }
+    img { 
+      width: 221px;
+      height: 332px ;
+    } 
+  } 
+} 
+
+a#small-download-btn, a#big-download-btn { 
+  background : { 
+    color: #769cb9 ; 
+    image: none ;
+  } 
+  margin : { 
+    top: 25px ; 
+  } 
+  font-weight: 400 ;
+  &:hover { color: white ; }
+} 
+
+#top-bar {
+	background: white ;
+	border: none ;
+	box-shadow: none ;
+	border: { 
+		bottom: 2px solid ;
+		color: #9F9E8F;
+	} 
+	padding: { 
+		bottom: 5px ;
+		top: 5px ;
+	} 
+	h1, h5 { color: #4d4d47 ; }
+	h5 { 
+		margin-top: -5px ;
+	} 
+	h1 { 
+		margin-top: 11px ;
+	} 
+
+  > a#a-founders { 
+    margin-top: 30px ;
+    font: {
+      size: 14px ; 
+      weight: 400 ;
+    } 
+    color: #4d4d47 ;
+    text-align: center ;
+  } 
+} 
+
+#mktg-spiel { 
+  .li { 
+    color: white ;
+    text-align: justified ;
+    > .heading { 
+      font: { size: 16px ; weight: 300 ; }
+    } 
+    > .subtext { 
+      font: { size: 12px ; weight: 300 ; variant: normal ; }
+      color: white ;
+      line-height: 15px ;
+    }
+    text-align: justified ;
+    margin-top: 10px ;
+  } 
+  span { 
+    &.bubble { 
+      font: { size: 11px ; weight: 400 ; }
+      padding: 0px 4px 1px 4px; 
+      border-radius: 4px ;
+      background-color: lighten($lightgray, 40%) ; 
+      color: black ; 
+      //&.orange { background-color: $orange ; color: $panel-color ; } 
+    } 
+  } 
+} 
+
+#next-steps { 
+  margin-top: 35px ;
+  border-top: 1px solid white ; 
+  > div { 
+    border-radius: 5px ;
+    padding: 10px ;
+    min-height: 40px ;
+    &:hover { 
+      background-color: $panel-color;
+    } 
+    > a { 
+      cursor: pointer ;
+      font-size: 13px ;
+      text-decoration: none ;
+      color: white ;
+      > img { height: 33px ; width: 30px ; margin-right: 7px ; }
+    } 
+  } 
+} 
+
+#pzl-daily { 
+  min-height: 200px ;
+  .MathJax { background: transparent ; }
+} 
+
+.small-text {
+  font : {
+    size: 10px ;
+  }
+}
+
+.input-micro {
+  width: 30px ;
+}
+
+.push-down { 
+  margin-top: 20px ;
+} 
+.push-down-30 { 
+  margin-top: 30px ;
+} 
+.push-down-50 { 
+  margin-top: 50px ;
+} 
+
+.text-center { 
+  text-align: center ;
+} 
+
+.text-right { 
+  text-align: right ;
+} 
+
+.disabled { 
+  color: $lightgray ;
+} 
+
+.subtext { 
+  padding: 3px ;
+  color: $orange ;
+  font: { 
+    size: 11px ;
+    variant: small-caps ;
+  } 
+}
+
+
+.navbar-inverse, .dropdown-menu {
+  li { 
+    > a{ 
+      color: white ; 
+      &.disabled { color: $lightgray ; } 
+    }
+  }
+  p.footnote {
+    padding: 0px 20px ;
+    font-size: 9.5px ;
+    color: $gradians-blue ;
+    margin-top: -2px ;
+  } 
+} 
+
+.navbar-inner { 
+  > ul > li > a:not([id='m-account']) {
+    font : {
+      size: 15px ;
+      weight: 500 ;
+    }
+  }
+} 
+
+.navbar-inner { 
+  border-radius: 0px ;
+  background-color: $gradians-blue ;
+}
+
+.dropdown-menu { 
+  &.slim { 
+    min-width: 100px ;
+  }
+  > li {
+    > a { 
+      font-size: 11.5px ;
+    } 
+    > .description { 
+      color: red ;
+      font-size: 10px;
+      padding: 0px 20px ;
+      text-transform: lowercase ;
+    } 
+    &.notice {
+      padding: 5px ;
+      font-size: 11px ;
+      color: white ;
+      > .subtext { 
+        font-size: 10px ;
+      }
+    }
+  } 
+
+  form { 
+    padding: 5px ;
+    input {
+      background: transparent ;
+      color: white ;
+      font: {
+        size: 15px ;
+      } 
+      border: {
+        style : none ;
+        radius: 0px; 
+        bottom: 1px solid $gradians-blue ;
+      } 
+      padding: 6px ; 
+      min-height: 18px ;
+    } 
+
+    p.help-block {
+      font-size: 10px ;
+      color: $gradians-blue ; 
+      margin-top: -4px ;
+    } 
+  } 
+} 
+
+.instruction { 
+  font: { 
+    size: 11px ; 
+    weight: 400 ; 
+  } 
+  color: #6ca7ab ; 
+  text: {
+    transform: lowercase ;
+  } 
+  margin: 0px 10px ;
+  line-height: 12px ;
+} 
+
+
+#signin-form { 
+  margin-top: 10px ;
+  input { 
+    padding: 11px 19px ;
+    font-size: 12px ;
+  } 
+} 
+
+#lnk-register { 
+} 
+
+#lnk-bell {
+  padding: 10px ; 
+  border-radius: 5px ;
+  margin-top: -1px ;
+  &.on {
+    background-color: $deep-blue ;
+  }
+}
+
+.modal { 
+  line-height: 15px ;
+  padding: 10px ;
+  background: rgba(25,25,25,0.95) ; 
+  border-radius: 0px ;
+  color: white ;
+  font-size: 11px ;
+
+  &.super-wide { 
+    width: 650px ;
+  } 
+  &.wide { 
+    width: 460px ;
+    left:50% ;
+  } 
+
+  &.slim { 
+    width: 250px ;
+  } 
+
+  &.regular { 
+    max-width: 350px ; 
+  }
+  &.fade { 
+    &.in {
+      &.super-wide { left: 40% ; }
+      &.wide { left: 50% ; }
+      border: {
+        bottom-left-radius: 26px ;
+        bottom-right-radius: 26px ;
+      }
+    }
+  } 
+
+  &.lateral-slide { 
+    &.fade {
+      left: -25% ;
+      transition: opacity 0.3s linear, left 0.3s ease-out ;
+      -moz-transition: opacity 0.3s linear, left 0.3s ease-out ;
+      width: 100% ;
+    }
+    &.in { 
+      left: 20% ;
+    } 
+  } 
+  
+  h1,h2,h3,h4,h5,h6 { 
+    &.white { color: white ; }
+    &.orange { color: $orange ; }
+    &.blue { color: $gradians-blue ; }
+    &.bold { font-weight: 600 ; }
+  } 
+
+  h1 { font-size: 24px ; }
+  h2 { font-size: 22px ; }
+  h3 { font-size: 14px ; }
+  h4 { font-size: 14px ; }
+  h5 { font-size: 14px ; }
+  h6 { font-size: 12px ; }
+
+  p:not([class~='title']) {
+    font-size: 12px ;
+  }
+
+  .control-label {
+    color: white ;
+  }
+
+  ul {
+    color: white ;
+    > li {
+      font : {
+        // size: 11px ;
+      }
+    }
+  }
+
+  form { 
+    label {
+      font-size: 14px ;
+    }
+
+    select, input:not([type='submit']) {
+      background: transparent ; 
+      font-weight: 300 ;
+      color: white ; 
+      border: { style: none ; radius: 0px ; }
+      border-bottom: 1px dotted white ; 
+      padding: 4px 6px; 
+      height: 15px ;
+    } 
+
+    select { font-size: 11px; }
+    input:not([type='submit']) { 
+      font-size: 14px ;
+      &.kompact { 
+        font-size: 11px ;
+        padding: 3px ; 
+      } 
+    }
+
+    input[type='file'] {
+      font-size: 11px ;
+      border: none ;
+    } 
+
+    .help-inline {
+      margin-top: -15px ;
+      padding: 0px ;
+    }
+
+    p {
+      &.help-block { 
+        font-size: 12px ;
+        margin-top: -5px ;
+        color: $orange; 
+      }
+    }
+
+    .controls { 
+      margin-bottom: 15px ;
+    } 
+  }
+
+  textarea { 
+    background: $panel-color ;
+    border: none ;
+    border-radius: 0px ;
+    font : { 
+      size: 12px ;
+      weight: 300 ;
+    } 
+    color: white ; 
+    line-height: 15px ;
+    padding: { 
+      left: 8px ;
+      right: 8px ;
+      top: 15px ;
+    } 
+  } 
+} 
+
+.tab-content { 
+  &:not[class~="scroll"] { min-height: 500px ; }
+  > form { 
+    &.active { display: block ; }
+  } 
+}  
+
+.scroll {
+  max-height: 300px ;
+  overflow: auto ;
+}
+
+#lessons-and-quizzes {
+  min-height: 300px ;
+  padding-top: 15px ;
+}
+
+.line {
+  &:not([class~='disabled']) { 
+    color: white ;
+  } 
+  &.disabled { color: $lightgray ; cursor: no-drop ; }
+  &:not([class~=kompact]) { 
+    padding: {
+      top: 3px ;
+    } 
+    min-height: 20px ;
+    font-size: 11.5px ; 
+  } 
+  &.kompact { 
+    font-size: 10px ;
+    padding: 0px ;
+  } 
+  cursor: pointer ; 
+  border-bottom: 1px solid $lightgray ; 
+
+  .caret { 
+    border-top: 4px solid white ;
+    width: 1px ;
+  } 
+  
+  &.selected {
+    > .dropdown { > a { color: white ; } }
+    
+    .long-badge { 
+      border-radius: 4px ;
+      background-color: $orange ;
+      color: $background ; 
+    } 
+    .caret { border-top: 4px solid $orange ; }
+  } 
+  &.disabled{
+    .subtext { color: $lightgray ; }
+    cursor: no-drop;
+    .caret { border-top: 4px solid $lightgray ; }
+  }
+  &.red {
+    .badge { 
+      background-color: $red ; 
+    }
+  } 
+  &.orange {
+    .badge { 
+      background-color: $orange ; 
+    }
+  } 
+  &.nodata {
+    .badge { background-color: white ; } 
+  } 
+  &.green {
+    .badge { 
+      background-color: $green ; 
+      color: white ; 
+    }
+  } 
+
+  > .dropdown { 
+    font-size: 10px ;
+    > a { 
+      color: $lightgray ;
+    }
+
+    > .dropdown-menu { 
+      a { 
+        background-color: transparent ; 
+        border: none ;
+        float: none ;
+        padding: 3px 20px ;
+        border-radius: 0px ;
+      } 
+    } 
+  } 
+
+  .subtext { 
+    text-align: right ;
+    padding: 0px ;
+    font-weight: 400 ;
+  } 
+
+  .badge { 
+     text-align: center ;
+     color: $gray ;
+     border-radius: 4px ;
+     padding: 0px ;
+     &:empty {
+       width: 6px ; 
+       height: 6px ;
+       float: left ;
+       margin-top: 4px ;
+     } 
+     &:not(:empty) { 
+      max-width: 20px ;
+      padding: 2px 0px ;
+      min-height: 15px ;
+     } 
+     font: {
+       size: 11px ;
+       weight: 400 ;
+     }
+  } 
+
+  .btn {
+    background: transparent ;
+    &.active {
+      background-color: rgba(0,129,194,0.7) ;
+      border-radius: 5px ;
+    }
+    > i {
+      vertical-align: middle ;
+      margin-left: 5% ;
+    } 
+    box-shadow: none ;
+    padding: 1px 2px 2px 2px ; 
+  }
+
+} 
+
+#wide-X, #wide-Y {
+  position: relative ;
+  > div { 
+    position: absolute ; 
+  }
+
+  .carousel { 
+    > .carousel-inner { 
+      text-align: center ;
+    } 
+    .item { 
+      > img { display: inline-block ; }
+      > .carousel-caption { 
+        top: 0px ; 
+        max-height: 20px ;
+        > div { 
+          max-width: 30% ;
+          float: left ;
+          font: { 
+            size: 23px ;
+          } 
+          color: $orange ;
+        } 
+
+      }
+    }
+  }
+}
+
+.contextual-menu { 
+  &.btn {
+    background: { 
+      color: $deep-blue ;
+      image: none ;
+    } 
+
+  }
+} 
+
+
+button[data-toggle='button'] {
+  background: {
+    color: $deep-blue ;
+    image: none ;
+  } 
+  &.clicked {
+    background-color: $orange ;
+    color: $panel-color ;
+  } 
+} 
+
+.btn {
+  &.white-bg { 
+    color: $panel-color ;
+    text-shadow: none ;
+  } 
+}
+
+.transparent { 
+  background: transparent ;
+} 
+
+.semi-transparent { 
+  background-color: rgba(43,43,43,0.5) ;
+}
+
+#wait {
+  height: 400px ;
+  text-align: center ;
+  > h1 {
+    margin-top: 40% ;
+    font-size: 50px ;
+  } 
+}
+
+
+.btn-inverse.active { background-color: $deep-blue ; }
+
+#form-feedback { 
+  > ul {
+    margin-right: 9px ;
+  } 
+} 
+
+#control-panel { 
+  position: fixed ;
+  top: 0px ;
+  z-index: 5;
+  min-width: 700px ;
+  width: 1024px ;
+  ul.nav {
+    margin-top: 15px ;
+    > li:last-child {
+      float: right ;
+      > a:not([id='a-reset-passwd']) { color: $orange ; font-weight: 500 ;}
+    }
+  }
+
+  #misc-a { 
+    margin-top: 25px ;
+    > div { 
+      margin-bottom: 5px ;
+      padding-bottom: 2px ;
+      > a { 
+        color: white ;
+        padding-bottom: 2px ;
+        font-size: 12px ;
+        &:hover { 
+          border-bottom: 1px solid $orange ;
+          text-decoration: none ;
+        } 
+      } 
+    } 
+  } 
+
+  a { 
+    &.selected { 
+      color: $orange ; 
+    } 
+  }
+
+  &+ div { 
+    margin-top: 100px ;
+  } 
+} 
+
+#desktop { 
+  margin-top: 110px ;
+} 
+
+#fdb-panel { 
+  > .row-fluid { 
+    font: { 
+      size: 13px ;
+      weight: 300 ;
+    }
+
+    padding: {
+      top: 10px ;
+      bottom: 15px ;
+    }
+    border-bottom: 1px solid $lightgray ;
+
+    .question { 
+      line-height: 14px ;
+      font-weight: 400 ;
+      margin-bottom:8px ;
+    }
+  } 
+
+
+  .score { 
+    > .maxmarks { font-size: 15px ; color: $orange ; text-align: center ;}
+    > .marks { color: white ; font-size: 22px ; text-align: right ; }
+    border-radius: 4px ;
+  } 
+} 
+
+.tab-content {
+  .btn-group {
+    margin-bottom: 25px ;
+  }
+} 
+
+.data-point-label {
+  font: {
+    size: 10px ;
+    weight: normal ;
+  }
+  position: absolute ;
+  color: white ; 
+  text-transform: lowercase ;
+}
+
+#graph-paper {
+  width: 600px ;
+  height: 800px ;
+  color: $gradians-blue ;
+
+  &.hide-x{ .xAxis { > .tickLabel { display: none ; } } } 
+  &.hide-y{ .yAxis { > .tickLabel { display: none  ;} } }
+
+  > .legend { 
+    td { color: $gradians-blue ; padding-left: 3px ; font-size: 10px ; text-transform: lowercase ; } 
+  } 
+}
+
+
+.jumbotron { 
+  margin-bottom: 60px ;
+  font : {
+    size: 28px ;
+    weight: 400 ;
+  } 
+  color: white ; 
+  padding-bottom: 10px ;
+  border-bottom: 1px dotted $lightgray ; 
+
+  a { 
+    font : { 
+      size: 13px ;
+    } 
+    margin-top: -7px ;
+    padding: { 
+      left: 19px ;
+      right: 19px ;
+    } 
+    &:hover { 
+      color: white ;
+    } 
+  } 
+} 
+
+.tagline {
+  font: {
+    size: 12px ;
+    weight: 400;
+  } 
+  color: $orange ;
+  margin-top: -5% ;
+  text: {
+    align: right ;
+    transform: lowercase ;
+  } 
+} 
+
+.typeahead.dropdown-menu {
+  z-index: 6 ;
+}
+
+#m-notifications { 
+  border-radius: 4px ;
+  &.on { background-color: $deep-blue ; }
+} 
+
+
+#tag-misc-properties {
+  > form { 
+    margin-top: 20px ;
+  } 
+
+  .row-fluid:not([class~='subpart-tagging']) {
+    margin-bottom: 20px ;
+  } 
+
+  .subpart-tagging {
+    > .label { 
+      font: { 
+        size: 14px ;
+        weight: normal ;
+      } 
+      color: $orange ;
+      background-color: transparent ;
+    } 
+  } 
+}
+
+select { 
+  background-color: $panel-color ;
+  color: white ;
+  max-width: 95% ;
+  border-radius: 1px ;
+
+  + .help-block {
+    font-size: 11px ;
+    color: $gradians-blue;
+    margin-top: -4px ;
+  } 
+} 
+
+
+li.split { 
+  text-align: center ;
+} 
+
+body > #spinner {
+  position: fixed ;
+  top: 50% ;
+  left: 50% ;
+  .text { 
+    font: {
+      size: 18px ;
+      variant: small-caps; 
+    }
+    text-align: center ;
+    margin-bottom: 5px ;
+  }
+
+  .subtext { 
+    font: {
+      size: 12px ;
+    }
+  }
+
+  background: rgba(19,19,19,0.9) ;
+  padding: 30px 10px ; 
+  min-width: 100px ;
+  max-width: 200px ;
+  border-radius: 10px ;
+  > .spinner { 
+    min-height: 30px ;
+    padding: 10px 0px 0px 0px ;
+  }
+}
+
+.container-fluid {
+  width: 1024px ;
+  margin: 0 auto ;
+}
+
+#m-register, #m-enrollment-confirm {
+  .btn-large {
+    font-size: 16px ;
+    font-weight: 400 ;
+  }
+
+  .chuppa-hua {
+    border: none ;
+    width: 0px ;
+    height: 0px ;
+  }
+} 
+
+#li-about-us { 
+  margin: {
+    left: 60px ;
+    top: 8px ;
+  }
+}
+
+.error { 
+  font-size: 11px ;
+  margin: {
+    top: -5px ;
+    bottom: 7px ;
+  } 
+  color: $orange ;
+} 
+
+#main-marketing-contact-etc { 
+  color: white ;
+  h1, h2, h3, h4, h5, h6 {
+    color: $orange ; 
+  }
+}
+
+
+[class*="ikon-scanbot"] {
+  display: inline-block;
+  width: 14px ;
+  height: 14px ;
+  margin-right: 2px ;
+  margin-top: 1px ;
+  vertical-align: text-top;
+}
+
+.ikon-scanbot {
+  background-image: url("scanbot-icon.png");
+}
+
+.ikon-scanbot-folder {
+  background-image: url("scanbot-folder-icon.png");
+}
+
+#spiel { 
+  > .row-fluid { 
+    margin-bottom: 20px ;
+  } 
+
+  .section { 
+    color: white ; 
+    font : { 
+      size: 25px ;
+      weight: 100 ;
+      family: "Trebuchet MS" ; 
+    } 
+    margin-bottom: 10px ;
+    padding-bottom: 10px ;
+  } 
+
+  p {
+    color: white ;
+    font : {
+      size: 12px ;
+    } 
+    line-height: 17px ;
+  }
+} 
+
+.answer { 
+} 
+
+#faq-side-panel { 
+  position:fixed ;
+
+  padding: {
+    top: 20px ; 
+    bottom: 20px ;
+  } 
+  border: none ; 
+
+  li {
+    > a { 
+      color: white ; 
+      font: { 
+        size: 15px ;
+      } 
+      padding-left: 0px ;
+    }
+  }
+
+  .heading { 
+    color: $orange ; 
+    letter-spacing: 0.8px ;
+    font : { 
+      size: 14px ;
+      family: "Trebuchet MS" ;
+      variant: small-caps ;
+    } 
+    margin: {
+      top: 10px ;
+      bottom: 10px ;
+    }
+  } 
+} 
+
+#faq-content-panel { 
+  color: white ;
+  letter-spacing: 0.4px ;
+  font: {
+    size: 12px ;
+    weight: 400 ; 
+  } 
+  line-height: 16px ;
+  padding-bottom: 400px ;
+
+  .question {
+    font: {
+      size: 13px ;
+    }
+    color: $orange ;
+  } 
+
+  b {
+    color: $gradians-blue ;
+    font-weight: 400 ;
+  } 
+
+  h1 { 
+    padding-bottom: 10px ;
+  } 
+
+  .accordion-group { 
+    border: none ;
+    
+    .accordion-heading { 
+      font : { 
+        size: 11.5px ;
+        weight: 500 ;
+      } 
+      > a { 
+        color: white ; 
+        &:hover { text-decoration: none ; }
+        padding: {
+          top: 4px ;
+          right: 15px ;
+          bottom: 4px ;
+          left: 0px ;
+        } 
+        outline: 0 ;
+      }
+    } 
+    .accordion-body { 
+      border-bottom: 1px dotted $orange ; 
+    } 
+    .accordion-inner { 
+      border: none ;
+      font-size: 11.5px ;
+      margin-left:4% ;
+    } 
+  } 
+
+} 
+
+#show-selected-lbl {
+  line-height: 24px ;
+}
+
+#m-demo { 
+  button { 
+    margin-top: 7px ;
+  } 
+  line-height: 14px ;
+
+  ul.nav {
+    li {
+      > a { 
+        font : { 
+          size: 12px ;
+          weight: 300 ;
+        }
+        padding: {
+          top: 3px ;
+          bottom: 3px ;
+        }
+        border-bottom: 1px dotted white ; 
+      }
+
+      [class*='span'] { 
+        min-height: 15px ;
+      }
+
+      > .stopwatch { 
+        font: { size: 10px ; weight: 500 ; }
+      }
+    }
+  }
+
+  label.radio { 
+    font : {
+      weight: 300 ;
+      size: 12px ;
+    } 
+  } 
+} 
+
+#m-upload-what, #m-upload-solution { 
+  h1,h2,h3 { 
+    color: white ;
+    border-bottom: 1px solid white ;
+    margin-bottom: 10px ;
+  } 
+
+  .progress { 
+    height: 7px ;
+    min-height: 5px ;
+    margin : {
+      top: 5px ;
+      bottom: 0px ;
+    }
+    > .bar { 
+      border:none ;
+    } 
+  } 
+} 
+
+#new-sk-students, #sk-confirm-identity { 
+  .line { 
+    padding: 0px ;
+    > [class*='span'] { min-height: 10px ; }
+    min-height: 15px ;
+    &.disabled { color: white ; }
+  } 
+}
+
+#new-sk-students { 
+  .line { 
+    > .badge { display: none ; }
+  }
+} 
+
+
+#lnk-faq { 
+  font: { 
+    size: 13px ;
+  } 
+}
+
+#form-resolve-scans { 
+  input {
+    max-width: 50px ;
+    margin-right: 5px ;
+  }
+} 
+
+#sg-ongoing { 
+  > .accordion-group { 
+    border: none ;
+  }
+
+  a {
+    font-size : 12px ;
+    color: white ;
+    &:hover { 
+      text-decoration: none ;
+    } 
+  }
+
+  .accordion-toggle { 
+    padding: 8px 15px 4px 15px ;
+    border-bottom: 1px solid $lightgray ; 
+  } 
+
+  .line { 
+    max-height: 20px ;
+    min-height: 0px ;
+    font-size: 11px ;
+    font-variant: small-caps ;
+  } 
+}
+
+#m-audit-form, #m-audit-apprentice, #m-reupload { 
+  label.checkbox { 
+    font-size: 11px ;
+  } 
+
+  .heading { 
+    font : { 
+      size: 17px ;
+      weight: 500 ;
+    } 
+  } 
+} 
+
+#form-qzb { 
+  .btn-group { 
+    .btn { 
+      margin-top: -5px ;
+    } 
+  } 
+
+  .navbar { 
+    margin-bottom: 0px ;
+  } 
+} 
+
+.dropdown-selection { 
+  font-size: 10px ;
+  text-align: center ;
+} 
+
+#m-exbopts-1 {
+  button {
+    margin-top: 7px ;
+  }
+
+  #as-homework, #as-takehome, #as-classwork {
+    padding: { 
+      top: 10px ; 
+    } 
+    border-radius: 5px ;
+    img { 
+      padding: 3px ;
+    } 
+    &:hover {
+      cursor: pointer ;
+      background-color: $panel-color ;
+    }
+    &.selected {
+      img { 
+        border: {
+          radius: 4px ;
+          color: $deep-blue ;
+          style: solid ;
+          width: 2px ;
+        }
+      }
+    }
+  } 
+
+  label.radio { 
+    font-size: 12px ;
+  } 
+
+  > .row-fluid {
+    &:first-child { 
+      padding: 2px 5px ;
+      margin-bottom: 15px ;
+      border-bottom: 1px solid $deep-blue ; 
+    }
+  } 
+} 
+
+#m-buy-credits, #m-refund-credits, #m-invoice {
+
+  select {
+    width: auto ;
+    height: 32px ;
+
+    // for some reason Chrome was not inherting the background color
+    // https://productforums.google.com/forum/#!topic/chrome/-BM8_C_lqC4
+    option {
+      background: rgba(25,25,25,0.95) ;
+    }
+  }
+
+  #total-amt {
+    text-align: center ;
+    border: thin dashed ;
+  }
+
+  #payment_type {
+    width: 206px ;  
+  }
+  
+  #payment_card_verification {
+    width: 42px ;  
+  }
+  
+  #img-payment-icons {
+    margin-bottom: 12px ;
+  }
+
+  #headline {
+    margin-bottom: -7px ;
+  }
+
+}
+
+#fm-new-examiners {
+  > .row-fluid { 
+    input { 
+      padding: 3px ; 
+      font-size: 12px ;
+      border: none ; 
+      border-bottom: 1px solid white ;
+    }
+  }
+}
+
+table { 
+  td.y-label { 
+    text-align: center ;
+  }
+  td.x-label {
+    padding-right: 10px ;
+  }
+}
+
+span { 
+  &.ping { 
+    font: { 
+      size: 8px ;
+    } 
+    padding: 0px 4px ; 
+    border-radius: 5px ;
+    background: white ;
+    color: $gray ; 
+    text-align: center ; 
+    float: right ;
+    margin-left: 3px ;
+
+    &.right, &.left { 
+      padding: 2px ; 
+      min-width: 20px ; 
+      font: { 
+        size: 10px ; 
+        weight: 400 ;
+        variant: small-caps ;
+      } 
+    } 
+  } 
+} 
+
+.tagit { 
+  &.ui-widget { font: inherit ; } 
+  &.ui-widget-content { 
+    background: none ; 
+    border: { 
+      radius: 0px ; 
+      style: none ; 
+      bottom: 1px dotted $orange ;
+    } 
+  } 
+} 

@@ -1,0 +1,29 @@
+
+operations : &tasks 
+  build_quiz : http://gutenberg/blocs/buildQuiz
+  assign_quiz : http://gutenberg/blocs/assignQuiz
+  receive_scans : http://gutenberg/blocs/receiveScans
+  annotate_scan : http://gutenberg/blocs/annotateScan
+  generate_suggestion_form : http://gutenberg/blocs/generateSuggestionForm
+  generate_student_roster : http://gutenberg/blocs/generateStudentRoster
+  rotate_scan : http://gutenberg/blocs/rotateScan
+  fetch_unresolved_scans : http://gutenberg/blocs/fetchUnresolvedScans
+  resolve_scan : http://gutenberg/blocs/resolveScan
+  write_tex : http://gutenberg/blocs/writeTex
+  compile_tex : http://gutenberg/blocs/compileTex
+  error_out: http://gutenberg/blocs/errorOut
+
+development : &non_production_settings
+  axis2 : http://localhost:8080/axis2/services/documentMaster
+  wsdl : http://localhost:8080/axis2/services/documentMaster?wsdl
+  server : http://localhost:8080
+  action : *tasks
+
+production : 
+  axis2 : http://109.74.201.62:8080/axis2/services/documentMaster
+  wsdl : http://109.74.201.62:8080/axis2/services/documentMaster?wsdl
+  server : http://109.74.201.62:8080
+  action : *tasks
+
+test : *non_production_settings 
+

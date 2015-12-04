@@ -1,0 +1,86 @@
+
+# Sample YAML 
+#
+#  lnk-something : 
+#    show : 
+#      left : 
+#      middle : 
+#      right : 
+#      wide : 
+#      modal : 
+#      menu :
+#      help : 
+#      video : true / false 
+#    autoclick : 
+#      tab : 
+#      link :
+#    url : 
+#      self : 
+#      panel :
+#    paginate-on: line/tab/sth. else
+#    default : true / false
+#    ajax : disabled / enabled 
+#    prev : 
+#    id : 
+#    update-on : < list of URLs >
+#    disable-if : key ( => json.key is true ) 
+#    disable-unless : key ( => json.key is false )
+#    callback : 
+#     pre :    -> pre click
+#     post :   -> post click
+#    childtabs : 
+#     reset : true | false -> unclick child tabs or not before clicking first one
+#
+##############################################################################
+## Admin Only 
+##############################################################################
+
+lnk-admin-console :
+  show : 
+    left : left-1
+    wide : wide-2
+  autoclick :
+    tab : tab-teacher-accounts
+
+tab-teacher-accounts :
+  url : 
+    self : byCountry?type=teacher
+    panel : inCountry?type=teacher&country=:id
+
+lnk-def-rubric : 
+  show : 
+    left: left-11
+    wide: wide-3
+  autoclick :
+    tab : tab-rubrics
+
+tab-rubrics : 
+  url : 
+    self : list/rubrics
+    panel : rubric/load?id=:id&context=edit
+
+a-activate-rubric : 
+  update-on : rubric/load
+  url : 
+    self : activate/rubric?id=:a
+
+lnk-mng-topics : 
+  show : 
+    left : left-2
+  autoclick :
+    tab : tab-mng-topics-1
+
+tab-mng-topics-1 :
+  url : 
+    self : verticals/list
+  autoclick : 
+    tab : tab-mng-topics-2
+
+tab-mng-topics-2 : 
+  url : 
+    self : vertical/topics?id=:prev&context=edit
+  prev : tab-mng-topics-1
+
+lnk-add-puzzle : 
+  show : 
+    modal : m-new-puzzle

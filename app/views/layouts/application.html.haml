@@ -1,0 +1,47 @@
+
+- server = "#{Gutenberg['server']}"
+-content_for :toolbox do
+  #toolbox.hidden 
+    = render partial: 'menus/user/abouts'
+    = render partial: 'toolbox/generic/line'
+  #modals
+    = render partial: 'modals/guest/register'
+    = render partial: 'modals/guest/founders'
+    = render partial: 'modals/guest/reset-passwd'
+  #notifications
+    = render partial: 'notifications/shared/old-browser'
+    = render partial: 'notifications/shared/reset-passwd'
+    = render partial: 'notifications/student/enrollment-blocked'
+    = render partial: 'notifications/student/enrolled-already'
+    = render partial: 'notifications/student/sektion-not-found'
+
+!!!5
+
+%html{html_attrs}
+  %head 
+    %title= "Partners in Practice"
+    = stylesheet_link_tag "application" 
+    = javascript_include_tag "application", "welcome"
+    = javascript_include_tag "external" if Rails.env == "production"
+    = csrf_meta_tag
+  %body 
+    = render partial: 'toolbox/generic/spinner'
+    .container-fluid 
+      #control-panel.g-panel.row-fluid
+        .span12
+          .navbar.navbar-inverse
+            #top-bar.navbar-inner
+              = image_tag "prepwell/logo-prepwell.png", size: "50x50", class: :span1
+              .span3
+                %h1= 'Prepwell'
+                %h5= 'Partners in Practice'
+              .span1.pull-right
+              = simple_link id: 'small-download-btn', for: 'Download', href: "https://play.google.com/store/apps/details?id=com.gradians.prepwell",
+              class: "btn pull-right", target: :blank
+              = simple_link id: 'a-founders', for: 'About Us', class: 'pull-right span2'
+
+      = render partial: 'mobile/intro'
+
+    = yield :toolbox
+
+

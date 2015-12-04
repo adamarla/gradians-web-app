@@ -1,0 +1,39 @@
+
+form.formtastic { 
+  font-family : Ubuntu, "Trebuchet MS", Helvetica, Arial, sans-serif;
+  margin-left: 2% ;
+} 
+
+form.formtastic fieldset.inputs p.inline-hints {
+   font-size : 9px ; 
+   text-align : justify ;
+   float : left ;
+   text-transform : uppercase ;
+} 
+
+form.formtastic fieldset.inputs label.label { 
+  font-size : 13px ;
+  text-transform : lowercase ;
+  width: auto ;
+  max-width: 25% ;
+  min-width: 8% ;
+  margin-right: 15px ;
+} 
+
+fieldset.inputs select {
+  font-size : 12px ;
+} 
+
+fieldset.buttons { 
+   margin-top : 10px ;
+} 
+
+.formtastic fieldset.boolean-flags li {
+  padding : 0px ; 
+  float : left ;
+  text-transform : lowercase ;
+}
+
+.formtastic .stringish input {
+  width: auto;
+}

@@ -1,0 +1,25 @@
+# == Schema Information
+#
+# Table name: videos
+#
+#  id             :integer         not null, primary key
+#  created_at     :datetime
+#  updated_at     :datetime
+#  active         :boolean         default(FALSE)
+#  watchable_id   :integer
+#  watchable_type :string(20)
+#  uid            :string(20)
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  url: MyString
+  restricted: false
+  instructional: false
+
+two:
+  url: MyString
+  restricted: false
+  instructional: false
+

@@ -1,0 +1,91 @@
+
+#faq-scanning.row-fluid
+  %h3.orange= "On Scanning"
+  .span8
+    .accordion{ id: 'fs' }
+      .accordion-group
+
+        .accordion-heading
+          %a.accordion-toggle{ data: { parent: '#fs', toggle: 'collapse' }, href: '#fs-1' }
+            Scanning - is it hard to do?
+        .accordion-body.collapse{ id: 'fs-1' }
+          .accordion-inner
+            Not at all. If you can use a printer or a photocopier, then you can use a scanner
+
+        .accordion-heading
+          %a.accordion-toggle{ data: { parent: '#fs', toggle: 'collapse' }, href: '#fs-2' }
+            What kind of a scanner do I need?
+        .accordion-body.collapse{ id: 'fs-2' }
+          .accordion-inner
+            %p
+              Any scanner that can take a bunch of sheets at a time
+            %p
+              The only type of scanner we do <b>not</b> recommend is what is called 
+              a <b>flat-bed</b> scanner. Its the kind where you have to lift a lid, place 
+              a sheet and then scan
+            %p
+              The problem with flat-bed scanners is that one can scan only one sheet 
+              at a time. Fine for scanning 5-6 sheets. But any more, and its painful to use
+              
+        .accordion-heading
+          %a.accordion-toggle{ data: { parent: '#fs', toggle: 'collapse' }, href: '#fs-3' }
+            Should I scan in color or black-and-white?
+        .accordion-body.collapse{ id: 'fs-3' }
+          .accordion-inner
+            %p
+              Either is fine
+            %p
+              You should ask your scanner to <b>scan in text / document</b> mode and then 
+              <b>save the scans in PDF format</b>. This way, all your scans would be contained 
+              in just one PDF file. You will then upload this PDF file to send 
+
+        .accordion-heading
+          %a.accordion-toggle{ data: { parent: '#fs', toggle: 'collapse' }, href: '#fs-5' }
+            After scanning, do I e-mail the scans to you?
+        .accordion-body.collapse{ id: 'fs-5' }
+          .accordion-inner
+            %p
+              No. If after scanning you have saved scans in a PDF file, then
+              %ul
+                %li
+                  Log into your Gradians.com account
+                %li
+                  Click on <b>Misc > Upload Scans</b>
+                %li
+                  Select the PDF file that has the scans
+                %li
+                  Click on <b>Upload</b>
+            %p
+              Thats it! We now have the scans and our system will sort them and distribute them for grading
+
+        .accordion-heading
+          %a.accordion-toggle{ data: { parent: '#fs', toggle: 'collapse' }, href: '#fs-6' }
+            Can students scan and upload their own worksheets so that I don't have to?
+        .accordion-body.collapse{ id: 'fs-6' }
+          .accordion-inner
+            %p
+              Sure they can. If you think that your students have easy access to a scanner - either at 
+              home or in school - and can use it, then sure - let them do their own scanning and uploading
+            %p
+              The procedure for uploading is the same as it is for teachers, namely
+              %ul
+                %li
+                  Students log into their Gradians.com account
+                %li
+                  Then they click on <b>Misc > Upload Scans</b>
+                %li
+                  They select the PDF file that has their scans
+                %li
+                  And then they click on <b>Upload</b>
+              
+
+      -#
+        .accordion-heading
+          %a.accordion-toggle{ data: { parent: '#fs', toggle: 'collapse' }, href: '#fs-1' }
+        .accordion-body.collapse{ id: 'fs-1' }
+          .accordion-inner
+
+        .accordion-heading
+          %a.accordion-toggle{ data: { parent: '#fs', toggle: 'collapse' }, href: '#fs-1' }
+        .accordion-body.collapse{ id: 'fs-1' }
+          .accordion-inner

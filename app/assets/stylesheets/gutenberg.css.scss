@@ -1,0 +1,1136 @@
+
+$gray:#DCDCD3 ;
+$lightgray: lighten($gray, 30%) ;
+
+$pink:#e3105a ;
+$lightpink: lighten($pink, 15%) ;
+
+$blue:#00007f ;
+$lightblue: lighten($blue, 5%) ;
+$gradians-blue: #6ca7ab ;
+
+$red: #ff0000 ;
+$orange:#ffa500 ;
+$green:#168816 ;
+$panel-color: lighten(black, 20%) ;
+
+/*
+  On www.codestyle.org, one can build combinations of font-families
+  and see what the probability for a particular font-family 
+  to be picked up on various platforms is. It also show that probability
+  of defaulting to the generic font-family - in our case, sans-serif
+*/
+
+
+body {
+  width : 1020px ;
+  background-color: $gray ; 
+  color: white ; 
+} 
+
+input::-webkit-input-placeholder {
+  color: $gradians-blue ;
+  font : {
+    family: Ubuntu, "Trebuchet MS", "Lucida Grande", sans-serif; 
+    size: 13px ;
+  }
+}
+
+.form-title {
+  color: $orange ;
+  margin-bottom: 20px ;
+  font: { 
+    size: 15px ;
+  }
+  text: {
+    align: center ;
+    transform: lowercase ;
+  }
+}
+
+p > a, div > a { 
+  text-decoration: none ;
+  color: $gradians-blue ;
+} 
+
+#viewport {
+  width: 850px ;
+  min-height: 100px ;
+  margin: {
+    top: 25px ;
+    left: 10% ;
+    right: 10% ;
+  }
+  //border-bottom: 3px solid #ffa500 ;
+}
+
+#public-links {
+  height: 30px ;
+  width: 95% ;
+  border-bottom: 3px solid $gradians-blue ; 
+} 
+
+#company-logo {
+  min-height: 40px ;
+  width: 100% ;
+  margin-bottom: 70px ;
+  
+  > #gradians_logo {
+    margin-right: 40px ;
+    float: right ;
+  }
+  
+  > #motto {
+    font-size: 14px ; 
+    color: $gradians-blue ;
+    float: none ;
+  }
+}
+
+#footer {
+  width: 80% ;
+  text-align: center ;
+  border-top: 1px solid $lightgray ;
+  float: left ;
+
+  margin: {
+    left: 10% ;
+  }
+  
+  > #copyright-notice {
+    width: 80% ;
+    margin: {
+      left: 10% ;
+      top: 2% ;
+    }
+    
+    font: {
+      size: 13px ;
+      weight: normal ; 
+    }
+    color: $lightgray ;
+  
+    #copyright-validity {
+  	  float: left ;
+      margin-right: 10px ;
+    } 
+  }
+}
+
+.popup { 
+  font-size: 10px ; 
+  color: $orange ;
+  text-transform: lowercase ;
+} 
+
+
+.what-next, .what-now { 
+  min-height: 80px ;
+  margin-bottom: 20px ;
+} 
+
+.instructions {
+  text-align: justify ;
+  font: {
+    size: 12px ;
+    weight: normal; 
+  }
+  color: $lightgray ;
+  margin-bottom: 20px ;
+}
+
+.part-form {
+  border-top: 2px solid $lightgray ;
+  padding-top: 20px ;
+}
+
+#control-panel { 
+  padding-top : 10px ;
+  height : 100px ;
+  border: {
+    bottom: 3px solid lighten($gray, 30%) ; 
+  }
+
+  #main-links, #minor-links {
+    list-style-type : none ;
+    min-height: 30px ;
+  }
+} 
+
+.full-width, .formtastic .text textarea.full-width { 
+   width: 100% ;
+} 
+
+.ui-tabs-panel {
+  background-color: lighten($gray,30%) ;
+}
+
+.swiss-knife, .measure > .level { 
+  min-height: 22px ;
+  border-bottom: 1px solid $gradians-blue ; 
+  padding: {
+    top: 2px ;
+    bottom: 1px ;
+  }
+  color: white ;
+  cursor: pointer ;
+
+  > a { 
+    float: left ;
+    margin-left: 2% ; 
+    font-size: 11px ;
+    font-variant: small-caps ;
+  } 
+
+  > input[type="button"] { 
+    color: white ; 
+    padding: 2px ;
+    border-radius: 3px ;
+    border: 1px solid $orange ;
+    background: transparent ;
+    min-width: 60px ;
+
+    &.clicked { 
+      border: none ;
+      background-color: $orange ;
+      font-weight: bold ;
+    } 
+  } 
+
+  > input[type="text"], > .constant {
+    color: white ;
+    height: 10px ; 
+    background: transparent ;
+    border: none ;
+    font-size: 12px ;
+    text-align: right ;
+    width: 40px ;
+    padding: { 
+      top: 4px ;
+      bottom: 4px ;
+      left: 0px ;
+      right: 0px ;
+    } 
+  }
+
+  > .constant { 
+    color: $gradians-blue ;
+  }
+
+  > input[type="text"] {
+    border-bottom: 1px solid $orange ;
+    border-radius: 0px ;
+    margin-left: 12px ;
+  }
+  
+  > .superscript { 
+    // color: $gradians-blue ;
+    font-size: 9px ;
+    margin-top: 3px ;
+    font-weight: bold ;
+  } 
+} 
+
+#disputes { 
+  > .swiss-knife { 
+    > .ticker { 
+      margin-right: 0px ;
+      color: $orange ;
+    } 
+
+    > .constant { 
+      font-size: 10px ;
+      margin-left: 5px ;
+    } 
+  } 
+} 
+
+.measure > .level { 
+  min-height: 40px ;
+  padding-top: 4px ;
+  &.disabled { 
+    color: lighten(gray, 15%) ; 
+    b { color: gray ; }
+  }
+} 
+
+#pending-quizzes {
+  a { 
+    color: $gradians-blue ;
+    font-size: 11px ;
+    float: right ;
+  } 
+}
+
+.as-accordion .swiss-knife { /* when within an accordion */
+  min-height : 17px ;
+  border : none ;
+  float: left ;
+}
+
+.swiss-knife, .measure { 
+  .label {
+    margin-left : 5px ;
+  }
+  b { color: $orange ; }
+}
+
+.swiss-knife > .label { font-variant: small-caps ; } 
+.measure .label {
+  width: 90% ;
+  font-size: 10px ;
+}
+
+
+.submit-buttons { 
+  min-height: 40px ;
+  margin-bottom: 10px ;
+
+  > input[type="submit"], > input[type="button"] {
+    border: {
+      style: none ;
+      radius: 4px ;
+    }
+
+    font: {
+      family: inherit ;
+      size: 12px ;
+      weight: bold ;
+    }
+    color: white ; 
+    background-color: $gradians-blue ;
+    -moz-border-radius: 4px ;
+    padding: 6px ;
+    text-align : center ;
+    text-decoration: none ;
+    min-width: 50px ;
+    margin-bottom: 18px ;
+  }
+
+  > input[type="text"] {
+    float: left ; 
+    width: 60% ;
+    padding: 5px 6px 5px 6px ;
+    font-size: 13px ;
+    border-radius: 0px ;
+    margin-right: 10px ;
+  }
+
+  > legend { 
+    color: $orange ;
+    font-size: 13px ;
+    margin-top: 4px ;
+    text-transform: lowercase ;
+  }
+}
+
+#topic-selection-list { 
+  .submit-buttons { 
+    min-height: 60px ;
+  } 
+}
+
+#side-panel {
+  width: 320px ;
+  padding-right: 10px ;
+  min-height: 820px ;
+  border-right: 3px solid lighten($gray,30%) ;
+
+  .ui-tabs.flipchart {
+    .ui-tabs-nav {
+      li.ui-state-default { 
+        border: none ;
+        border-top: 3px solid white ;
+        width: 30% ;
+        margin-right: 3% ;
+
+        &.ui-state-disabled {
+          border-top: 3px solid $lightgray ;
+          a { color: $lightgray ; }
+        }
+        &.ui-state-active {
+        }
+        &.ui-tabs-selected { 
+          a { color: $gradians-blue ; border: none ; cursor: pointer ; }
+        }
+      }
+    }
+    .ui-tabs-panel {
+      .ui-state-hover { border: none ;  color: $orange ; }
+    }
+  }
+
+  .ui-widget-header, .ui-tabs-nav {
+    background-color: inherit ; 
+  }
+
+  .ui-widget-content, .ui-widget-header {
+    background: transparent ;
+  }
+
+}
+
+#middle-panel, #right-panel {
+  width: 300px ;
+  padding-left: 20px ;
+}
+
+#topic-selection > legend { 
+  width: 100% ;
+  
+  margin: {
+    top: 15px ;
+    bottom: 15px ;
+  }
+} 
+
+legend {
+  margin: {
+    top: -5px ;
+  }
+  font-size: 12px ;
+  color: $gradians-blue ;
+  padding-bottom: 20px ;
+  font-variant: small-caps ;
+}
+
+legend + form {
+  margin: {
+    top: -13px ;
+  }
+}
+
+///////////////  formtastic form changes ///////////////////////////
+
+textarea, input[type="text"], input[type="password"], input[type="email"], input[role="textbox"] {
+  max-width: 72% ;
+  width: auto ; // to override width in formtastic.css
+  font: {
+    family: "Trebuchet MS" ;
+    size: 13px ;
+  } 
+
+  border: {
+    radius: 3px ;
+    style: solid ;
+    width: 1px ;
+    color: lighten($gray, 30%) ;
+  } 
+  -moz-border-radius: 3px ;
+  background-color: lighten($gray, 80%) ;
+  color: $gray ;
+
+  font-style : sans-serif;
+  padding: 6px 9px ;
+}
+
+#accounts-summary, #new-school, #edit-school {
+fieldset.inputs {
+  label {
+      width: 25% ;
+    }
+  }
+}
+
+span.unhappyMessage {
+  color: #ffa500 ;
+  font: {
+    weight: normal ;
+    size: 11px ;
+  }
+}
+
+.ticker, .ys-ticker, .grd-ticker {
+  color: $orange ;
+  font: {
+    size: 24pt ;
+    weight: normal ;
+  }
+}
+
+.medium-ticker { 
+  color: $orange ;
+  font: { 
+    size: 15pt ;
+  } 
+} 
+
+.superscript { 
+  height: 13px ;
+  float: right ;
+  color: $gradians-blue ;
+  margin: {
+    left: 2% ;
+    right: 3% ;
+  }
+  font-size: 85% ;
+}
+
+.swiss-knife > .ticker {
+  color: #ffa500 ; 
+  font: {
+    size: 8pt ;
+    weight: normal ; 
+  }
+  margin: {
+    left: 3% ;
+    right: 3% ;
+    top: 1% ;
+  } 
+  text-align: center ;
+  border-radius: 4px ;
+  
+  &.box {
+    width: 20% ;
+    color: white ;
+    padding: {
+      top: 2px ;
+      bottom: 2px ;
+    } 
+  } 
+  &.complete { 
+    color: $gradians-blue ;
+  } 
+  &[color="pink"]{
+    background-color: $pink ;
+  }
+  &[color="blue"]{
+    background-color: $blue ;
+  }
+  &[color="lightblue"]{
+    background-color: $lightblue ;
+  }
+  &[color="orange"]{
+    background-color: $orange ;
+  }
+  &[color="green"]{
+    background-color: $green ;
+  }
+}
+
+#overview {
+  .swiss-knife {
+    > .ticker {
+      font-size: 11px ;
+      background-color: $panel-color ;
+      color: white ;
+      padding: 2px 6px ;
+      min-width: 12% ;
+    } 
+  }
+}
+
+#testpaper { 
+  > .swiss-knife { 
+    min-height: 40px ;
+
+    > .ticker { 
+      min-width: 90% ;
+      text-align: left ;
+    } 
+  } 
+} 
+
+.led {
+  color: #ffa500 ;
+  font: {
+    size: 12pt ;
+  }
+}
+
+.grd-control {
+  height: 45px ;
+}
+
+.grd-label {
+  font-size: 14px ;
+  max-width: 30% ;
+  margin-top: 13px ;
+  margin-right: 20px ;
+}
+
+/*
+.grd-slider {
+  margin-top: 20px ;
+  width: 50% ;
+}
+*/
+
+#new-examiners form li {
+  width: 90% ;
+  float: left ;
+}
+
+.swiss-knife[marker="highlight"] {
+  color: $orange ;
+}
+
+.selected {
+  color: $orange ;
+}
+
+.grading-panel-question-label {
+  height: 20px ;
+  font: {
+    size: 13px ;
+  }
+  margin-bottom: 10px ;
+  border-bottom: 2px solid $lightgray ;
+  color: white ;
+}
+
+.grade-btns-mcq.ui-buttonset, .grade-btns-non-mcq.ui-buttonset {
+  margin-bottom: 20px ;
+  > label {
+    color: white ;
+    border: {
+      radius: 4px ;
+    }
+    margin-right: 0px ;
+    > span {
+      padding: 0.4em 5px ;
+    }
+
+  }
+
+  > label.clicked {
+    background-color: transparent ;
+    color: white ; 
+    border: 1px solid #ffa500 ;
+  }
+}
+
+#build-quiz-receipt, #assign-quiz-receipt {
+  width: 90% ;
+  min-height: 100px ;
+
+  .big-ticker {
+    width: 50% ;
+    min-height: 30px ;
+
+    > .ticker-display-value {
+      font: {
+        size: 25px ;
+      }
+      color: $gradians-blue ;
+      margin-bottom: 5px ;
+    }
+    
+    > .ticker-margin-note {
+      font: {
+        size: 13px ;
+      }
+      text-transform: lowercase ;
+      color: white ; 
+    }
+  }
+
+}
+
+.subpart-tags {
+  width: 100% ;
+  min-height: 50px ;
+
+  > li {
+    margin-right: 10px ;
+  }
+
+  > li.marks {
+    width: 60% ;
+    float: left ;
+  }
+
+  > li.length {
+    float: right ;
+  }
+}
+
+#workbench-controls {
+  > form {
+    min-width: 40% ;
+
+    > li {
+      float: left ;
+    }
+  }
+}
+
+.filters {
+  max-width: 70% ;
+  margin-right: 30px ;
+  min-height: 30px ;
+  float:left ;
+
+  > .filter { 
+    width: 100% ;
+    > label {
+      color:$gradians-blue;
+      font: {
+        size: 12px ;
+      }
+      margin-left: 5px ;
+    }
+  }
+}
+
+#mainstage {
+  margin-top: 50px ;
+  min-height: 300px ;
+  font-size: 13px ;
+  letter-spacing: 0.4px ; 
+}
+
+#sign-in-form {
+
+  > form {
+    min-height: 80px ;
+    width: 100% ;
+  }
+
+  fieldset.inputs {
+    width: 90% ;
+    float: left ;
+
+    li {
+      min-width: 40% ;
+      margin-right: 20px ;
+
+      > input[type="text"], > input[type="password"] {
+        padding: 8px ;
+        font-size: 16px ;
+        max-width: 90% ;
+        min-width: 90% ;
+        border: {
+          radius: 7px ;
+          style: solid ;
+          width: 1px ;
+        }
+        -moz-border-radius: 7px ;
+        background: white ;
+      }
+
+      > label { 
+        float: none ;
+        margin-bottom: 5px ;
+        font: {
+          size: 17px ;
+          weight: normal ;
+        }
+        color: $gradians-blue ; 
+      } 
+
+    }
+
+    input[type="submit"] {
+      margin-top: 27px ;
+      width: 12% ;
+      font-size: 15px ;
+    }
+
+  }
+}
+
+#try-us, #new-course { 
+  form {
+    input[type="submit"] {
+      min-width: 50% ;
+    }
+    
+    li {
+      > label { 
+        width: 100% ;
+        font-size: 12px ;
+        margin-bottom: 3px ;
+        text-transform: lowercase ;
+      } 
+    }
+  }
+}
+
+#new-course { 
+  form { 
+    input[type="submit"] {
+      float: right ;
+    }
+    > div {
+      min-height: 40px ;
+      margin-bottom:10px ;
+      fieldset { 
+        width: 75% ;
+        float: left ;
+      } 
+    }
+  } 
+}
+
+.orange-submit-btn {
+  border: {
+    style: none ;
+    radius: 5px;
+  }
+  font: {
+    family: inherit ;
+    weight: bold ;
+    size: 15px ;
+  }
+  color: $gray ; 
+  background-color: $orange ; 
+  padding: 8px 6px 8px 6px ;
+  text: {
+    align: center ;
+    decoration: none ;
+  }
+  height: 40px ;
+  float: left ;
+}
+
+#about-us {
+
+  margin-top: -20px ;
+
+  > #question {
+    width: 100% ;
+    font-size: 14px ;
+    color: $gradians-blue ;
+    > p {
+      font-size: 14px ;
+      color: darken(white, 15%) ;
+      > a {
+	    color: $gradians-blue ;
+	  }
+	}
+  }
+}
+
+.column {
+  float: left ; 
+  margin: { 
+    top: 3% ;
+    left: 3% ;
+  } 
+
+  &.one_2 {
+    width: 42% ;
+  }
+
+  &.one_3 {
+    width: 30% ;
+  } 
+} 
+
+.half-column { 
+  width: 45% ;
+  margin-right: 5% ;
+} 
+
+.one-third-column {
+  width: 32% ;
+  margin: {
+    right: 4% ;
+    bottom: 20px ;
+  }
+}
+
+.two-third-column {
+  width: 63% ;
+  margin: {
+    right: 4% ;
+    bottom: 20px ;
+  }
+}
+
+#how-it-works {
+  width: 100% ; 
+
+  > .half-column {
+    > .step {
+      width: 100% ;
+      min-height: 70px ;
+      margin-bottom: 7% ;
+
+      > img { 
+        float: left ; 
+      } 
+
+      > .right { 
+        width: 55% ;
+        font-size: 13px ;
+        color: white ; 
+        text-align: left; 
+        margin: { 
+          left: 5px ;
+          top: 12px ;
+        }
+      }
+    }
+  }
+
+}
+
+#scanbot-image {
+  max-width: 40% ;
+  + .left {
+    max-width: 65% ;
+    margin-left: 30px ;
+  }
+}
+
+#scanbot-manual {
+  margin-top: -30px ;
+  > * {
+    width: 100% ;
+    min-height: 30px ;
+  }
+
+  h4 {
+    font: {
+      weight: normal ;
+    }
+    color: $orange ;
+  }
+
+  p {
+    font: {
+      weight: normal ;
+    }
+    color: white ;
+  }
+} 
+
+#scanbot-getting-it {
+  a {
+    background-color: $gradians-blue ;
+    width: 85% ; 
+    height: 45px ;
+    color: white ;
+
+    border: {
+      radius: 7px ;
+      style: none ;
+    }
+    font-size: 14px ;
+
+    text: {
+      transform: lowercase ;
+      align: center ;
+      decoration: none ;
+    }
+    padding-top: 15px ;
+  }
+  margin-bottom: 15px ;
+}
+
+  > #instruction {
+    margin: {
+      top: 5% ;
+      right: 5% ;
+    }
+    float: right ;
+    width: 45% ;
+    font-size: 14px ;
+    color: darken(white, 15%) ;
+  }
+
+#recover-password {
+  float: none ;
+  width: 20% ;
+  margin: {
+    left: 40% ;
+  }
+  > a { 
+    text-decoration: none ;
+    font-size: 13px ;
+    color: $gradians-blue ;
+    text-transform: lowercase ;
+  } 
+}
+
+#preview-navigation {
+  min-height: 50px ;
+  width: 90% ;
+  margin-bottom: 14px ;
+
+  > .ticker {
+    margin-top: 5px ;
+  }
+}
+
+li {
+  > label {
+    color: $gradians-blue ;
+  }
+}
+
+.as-accordion {
+  .scroll-heading {
+    border-bottom: 1px solid $gradians-blue ; 
+    padding: {
+      top: 5px ;
+      bottom: 5px ; 
+      left: 25px ;
+    }
+    color: white ;
+    cursor: pointer ;
+  }
+
+  > form {
+    min-height: 300px ;
+  }
+}
+
+.as-accordion > .scroll-content.ui-accordion-content {
+  width: 100% ;
+  padding: 0pt ;
+  min-height: 150px ;
+  background: transparent ;
+
+  > .swiss-knife {
+    color: $gradians-blue ;
+    font-size: 12px ;
+  }
+
+  > .swiss-knife.selected {
+    color: #ffa500 ;
+  }
+
+  > a { 
+    color: $gradians-blue ;
+    float: left ;
+    width: 100% ;
+    text-align:center ;
+  } 
+}
+
+#enrolled-students { 
+  > .scroll-content { 
+    min-height: 500px ;
+  }
+}
+
+#try_us-link {
+  color: $gradians-blue ;
+}
+
+#past-quizzes-list a.btn {
+  width: 40% ;
+  font-size: 12px ;
+  color: white ; 
+  background-color: $gradians-blue ;
+  border-radius: 10px ;
+  margin: {
+    left: 23px ;
+    top: 10px ;
+    bottom: 20px ;
+  }
+}
+
+#trial-user-signup {
+  li { 
+    margin-bottom: 0px ;
+  } 
+  input[type="submit"] {
+    float: left ; 
+    margin-top: 15px ;
+  }
+} 
+
+#try-us-icon {
+  margin-top: -20px ;
+}
+
+#try-us-next-steps {
+  margin-left: -100px ;
+  width: 35% ;
+
+  > .step { 
+    width: 100% ;
+    height: 90px ;
+    margin-bottom: 10px ;
+
+    .text {
+      font-size: 13px ;
+      color: white ; 
+      margin: {
+        top: 5px ;
+        left: 8px ;
+      }
+      max-width: 91% ;
+    }
+  }
+}
+
+.browser-icon {
+  min-width: 100px ;
+  margin-top: -10px ;
+  > img { 
+    float: none ;
+  } 
+
+  > a { 
+    width: 100% ;
+    float: left ;
+    text-transform: lowercase ;
+  }
+} 
+
+#courses-summary { 
+  margin-top: 53px ;
+}
+
+#suggestion {
+
+  #instruction {
+    color: $lightgray ;
+  }
+
+} 
+
+.ui-dialog.alert {
+  border: {
+    radius: 18px ;
+  }
+  background: {
+    color: $lightgray ;
+  }
+  > .ui-widget-header {
+    font-size: 14px ;
+    text-transform : lowercase ;
+  }
+  .ui-widget-content {
+  }
+}
+
+.list-item { 
+  width: 95% ; 
+  color: white ;
+  font-size: 11px ;
+  margin-top: 5px ;
+  float: right ;
+} 
+
+.name-filter { 
+  height: 30px ;
+
+  > a {
+    margin: {
+      left: 4% ;
+    }
+  }
+} 
+
+.notitle .ui-dialog-titlebar { 
+  display: none ;
+} 
+
+#comment-box {
+  position: fixed ;
+  width: 300px ;
+  height: 50px ;
+  margin-left: 20% ;
+
+  > input[type="text"] {
+    border: 1px solid $orange ;
+    font-size: 10px ;
+  } 
+} 
+

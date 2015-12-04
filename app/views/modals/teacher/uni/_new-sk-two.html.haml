@@ -1,0 +1,34 @@
+
+#m-new-sk-2.modal.fade.lateral-slide{ :role => :dialog }
+
+  -# static components
+  .row-fluid
+    -# build
+    .span3.offset1
+      .span11
+        %h1.orange= "Copy-Paste names" 
+        %p
+          If you have student names in a document or a spreadsheet, then simply copy 
+          the names (<b>Ctrl+C</b>) and paste them in the box below (<b>Ctrl+V</b>). You 
+          can also type in the box
+        %p
+          Click <b>Preview</b> to see what names were inferred
+        %p.push-down
+          = simple_form_for :add, url: preview_names_path, remote: true, defaults: { label: false } do |f|
+            = f.input :names, as: :text, input_html: { rows: 10, cols: 60, class: 'span11' }
+            = simple_button for: 'Preview', type: :submit, class: 'btn-primary'
+
+    -# print
+    .span7
+      .span11
+        %h1.orange= "Check"
+        %p
+          = simple_form_for :add, remote: true, defaults: { label: false }, 
+            html: { data: { id: 'tab-mng-sektions-1', action: "#{enroll_named_path}?id=:id" } } do |f|
+            %p
+              If the list of students below looks good, then click 
+              = simple_button for: 'Add to Group', type: :submit, class: 'btn-primary' 
+            #new-sk-students.push-down
+              .column.span4
+              .column.span4
+              .column.span4

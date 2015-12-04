@@ -1,0 +1,26 @@
+
+%ul.nav.nav-tabs.always-on
+  %li
+    = simple_link for: "To-do", id: 'tab-audit-1', href: '#pane-audit-1'
+  %li
+    = simple_link for: "Accept/reject", id: 'tab-audit-2', href: '#pane-audit-2'
+  %li
+    = simple_link for: 'Selfies', id: 'tab-audit-3', href: '#pane-audit-3'
+  %li
+    = simple_link for: 'Add hints', id: 'tab-audit-4', href: '#pane-audit-4', reload: true
+
+.tab-content
+  #pane-audit-1.tab-pane
+    .row-fluid
+      .btn-group.pull-left
+        = simple_link for: 'Oldest', class: 'btn btn-inverse', 
+          id: 'lnk-audit-oldest', href: "#{audit_todo_path}?t=oldest", remote: true
+        = simple_link for: 'Newest', class: 'btn btn-inverse', 
+          id: 'lnk-audit-newest', href: "#{audit_todo_path}?t=newest", remote: true
+      .btn-group.pull-right
+        = simple_link for: "Edit", class: 'btn btn-inverse', id: 'lnk-edit-form'
+        = simple_link for: "Audit", class: 'btn btn-inverse', id: 'lnk-audit-form'
+  #pane-audit-2.tab-pane
+  #pane-audit-3.tab-pane
+    = render partial: 'topics/selector', locals: { context: :addhints, onepane: true }
+  #pane-audit-4.tab-pane

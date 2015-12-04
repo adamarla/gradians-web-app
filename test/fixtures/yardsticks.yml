@@ -1,0 +1,25 @@
+# == Schema Information
+#
+# Table name: yardsticks
+#
+#  id          :integer         not null, primary key
+#  mcq         :boolean         default(FALSE)
+#  meaning     :string(255)
+#  insight     :boolean         default(FALSE)
+#  formulation :boolean         default(FALSE)
+#  calculation :boolean         default(FALSE)
+#  weight      :integer         default(1)
+#  bottomline  :string(255)
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  annotation: MyString
+  description: MyString
+  default_allotment: 1
+
+two:
+  annotation: MyString
+  description: MyString
+  default_allotment: 1

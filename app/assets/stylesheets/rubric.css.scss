@@ -1,0 +1,116 @@
+
+$gray: #191919 ; // rgb(25,25,25)
+$lightgray: #999999 ; // rgb(153,153,153) 
+$gradians-blue: #6ca7ab ; // rgb(108,167,171)
+$green: #11c214 ; // rgb(17,194,20)
+
+$red: rgba(231,21,21,0.5) ; 
+$orange: rgba(255,165,0,0.5) ; // rgb(255,165,0)
+$deep-blue: #01537d ; // rgb(1,83,125)
+
+.criterion { 
+  font-size: 11px ;
+  cursor: pointer ; 
+
+  &.grade { 
+    padding: { 
+      top: 2px ;
+      bottom: 4px ; 
+      left: 4px ; 
+      right: 2px ;
+    } 
+    &:nth-child(odd) { 
+      background-color: rgba(1,83,125,0.5);
+      border-radius: 5px ;
+    } 
+  }
+
+  &.view { 
+    max-width: 95% ;
+    font-size: 11px ;
+    padding: { 
+      bottom: 4px; 
+      left: 4px ;
+      top: 4px ;
+      right: 4px ;
+    } 
+    border-radius: 2px ;
+    &.highlight {
+      background-color: rgba(1,83,125,0.5);
+    }
+  } 
+
+  .kb { 
+     text-align: center ;
+     margin-top: 4px ;
+     padding: 4px ;
+     min-width: 14px ;
+     min-height: 15px ;
+     font-weight: 700 ;
+     &:empty { display: none ; }
+     border-radius: 15px ;
+     float: none ;
+  }
+
+  &.selected { 
+    .kb { 
+      background-color: white ; 
+      border: none ;
+      color: $gray ;
+      border-radius: 3px ;
+    } 
+  } 
+
+  &:not([class~='selected']){
+    .kb { 
+      background-color: $lightgray ;
+    } 
+  }
+
+  div:not([class]) {
+    background-color: $lightgray ;
+    height: 10px ;
+    //width: 90% ;
+    margin-top: 6px ;
+    border-radius: 1px ;
+    > .reward, > .penalty {
+      // background-color: rgba(1,83,125,0.7) ;
+      background-color: rgba(6,145,8,0.7) ;
+      height: 100% ;
+      &.red { background-color: $red ; }
+      &.orange { background-color: rgba(255,165,0,0.9) ; }
+    }
+  }
+
+} 
+
+#fdb-main {
+  position: absolute ; 
+  top: 0px ;
+  left: 0px ;
+
+  > div:not([id~='pending-scans']) {
+    position: absolute ;
+  }
+
+  > #fdb-active-area {
+    top: 50px ;
+  }
+}
+
+#fdb-controls, #fdb-typeahead {
+  z-index: 4 ;
+  float: left ;
+}
+
+#fdb-controls {
+  position: fixed ;
+  button[data-kb] { 
+    border-radius: 0px ;
+    min-height: 30px ;
+    min-width: 98px ;
+    > span.kb { padding: 3px ; border-radius: 10px ; font-weight: 500 ; }
+    &.btn-success { color: $gray ; font-size: 14px; } 
+  } 
+}
+

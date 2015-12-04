@@ -1,0 +1,122 @@
+
+# Sample YAML 
+#
+#  lnk-something : 
+#    show : 
+#      left : 
+#      middle : 
+#      right : 
+#      wide : 
+#      modal : 
+#      menu :
+#      help : 
+#      video : true / false 
+#    autoclick : 
+#      tab : 
+#      link :
+#    url : 
+#      self : 
+#      panel :
+#    paginate-on: line/tab/sth. else
+#    default : true / false
+#    ajax : disabled / enabled 
+#    prev : 
+#    id : 
+#    update-on : < list of URLs >
+#    disable-if : key ( => json.key is true ) 
+#    disable-unless : key ( => json.key is false )
+#    callback : 
+#     pre :    -> pre click
+#     post :   -> post click
+#    childtabs : 
+#     reset : true | false -> unclick child tabs or not before clicking first one
+#
+##############################################################################
+## Students 
+##############################################################################
+
+a-mobile-intro :
+  show : 
+    superwide: superwide-1
+  default : true
+
+a-courses :
+  show : 
+    left: left-3
+    wide: wide-1
+  url: 
+    self: course/list
+
+a-st-main : 
+  show : 
+    menu : m-st-work 
+
+a-st-selfwork : 
+  autoclick : 
+    tab : tab-st-stabs-1
+  show : 
+    left: left-5 
+    wide: wide-Y
+
+tab-st-stabs-1 : 
+  url : 
+    self : stabs/graded 
+    panel : stabs/dated?uid=:id
+  autoclick :
+    tab : tab-st-stabs-2
+
+tab-st-stabs-2 : 
+  url : 
+    panel : stab/load?id=:id
+
+a-st-schoolwork :
+  autoclick :
+    tab : tab-st-rc-1
+  show : 
+    left : left-1
+    wide : wide-X
+
+tab-st-rc-1 :
+  url : 
+    self : exams/list 
+  autoclick :
+    tab : tab-st-rc-2
+
+tab-st-rc-2 :
+  url : 
+    self : exam/layout?e=:prev
+  prev : tab-st-rc-1
+
+tab-st-inbox :
+  url : 
+    self : inbox
+    panel : worksheet/preview?id=:id 
+  id : tab-st-inbox
+
+tab-st-outbox :
+  url : 
+    self : outbox
+    panel : worksheet/scans?id=:id 
+  id : tab-st-outbox
+
+lnk-enroll-self : 
+  show : 
+    modal : m-enroll-self
+
+lnk-attach-asset : 
+  show : 
+    modal : mng-assets
+
+tab-expld-quizzes : 
+  prev: course-expld-view
+  url : 
+    self : course/quizzes?id=:prev
+    panel : ping/quiz?id=:id
+
+a-pay : 
+  id : tab-expld-quizzes
+  url : 
+    self : grade/quiz?id=:id
+  update-on : ping/quiz
+  disable-if : paid_for
+

@@ -1,0 +1,45 @@
+
+#potd.row-fluid.hero-unit
+  .row-fluid
+    .span6.offset1 
+      .row-fluid
+        .span2
+          = image_tag 'landing/puzzle-27479.png', size: '40x40', class: :blue 
+          #puzzle-stopwatch.push-down
+            .small-text
+              %i.icon-time.icon-white
+              Submit in
+            .stopwatch{ id: 'puzzle-expiry' }
+        .span9
+          .title.orange= 'Problem of the Day'
+          #pzl-daily
+    .span5
+      .row-fluid
+        .span3
+          = image_tag 'landing/grader-14894.png', size: '40x40', class: :blue 
+        .span7
+          .title.orange= 'Want to get it checked?'
+          %p 
+            Solve the problem on paper and <span class='orange'>use our mobile app</span> 
+            to take a snap of your solution. Then upload it using the same app. Its that simple! 
+          %p 
+            We would be more than happy to look at your work and give our feedback. 
+          - if current_account.nil?
+            %p
+              Don't forget to <span class='orange'>register</span> first. Its the only 
+              way we will know who you are.
+  .row-fluid{ id: 'next-steps' }
+    .span3{ class: (current_account.nil? ? 'offset2' : 'offset4') }
+      %a{ id: 'a-scanbot', href: 'https://play.google.com/store/apps/details?id=com.gradians.collect&hl=en', 
+          target: '_blank', data: { 'no-touch' => :true } }
+        = image_tag 'scanbot-trans.png', size: '25x25'
+        Download Mobile App
+    - if current_account.nil?
+      .span2
+        %a{ id: 'a-founders', data: { 'no-touch' => :true } }
+          = image_tag 'landing/group-3359.png', size: '30x30'
+          About Us
+      .span2
+        %a{ id: 'a-register', data: { 'no-touch' => :true }, href: '#' }
+          = image_tag 'landing/backpack.png', size: '30x30'
+          Register

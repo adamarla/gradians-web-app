@@ -1,0 +1,106 @@
+
+-# Customized markers 
+- user = current_account.loggable
+- is_admin = current_account.role == :admin
+
+-# Define contents_for 
+- for j in [:toolbox, :menus, :modals, :notifications]
+  - content_for j do 
+    - klass = (j == :toolbox) ? 'hidden' : ''
+    - partials_f  = (j == :toolbox) ? ['grading/right', 'generic', 'preview'].map{ |a| "toolbox/#{a}" } : ['examiner','shared'].map{ |a| "#{j}/#{a}" }
+    %div{ id: j, class: klass }
+      - for f in partials_f
+        - Dir["app/views/#{f}/*.haml"].map{ |x| partial_path(x) }.each do |p| 
+          = render partial: p, locals: { me: user, admin: is_admin }
+      -# render exceptions here 
+      - if j == :menus 
+        = render partial: 'menus/user/account'
+        = render partial: 'menus/admin/per-rubric' if is_admin
+      - if j == :toolbox
+        = render partial: 'toolbox/rubric/buttons'
+        = render partial: 'toolbox/rubric/criterion'
+      - if j == :modals
+        - if is_admin
+          = render partial: 'modals/admin/new-criterion' 
+          = render partial: 'modals/admin/new-puzzle' 
+
+- layout = { left: [ [2, 'admin/mng-topics'],
+                     [3, 'examiners/tag-pending'],
+                     [4, 'toolbox/grading/left/pending'],
+                     [5, 'examiners/typeset-pending'],
+                     [6, 'examiners/resolution-pending'],
+                     [7, 'examiners/audit'],
+                     [8, 'examiners/video-pending'],
+                     [9, 'examiners/apprentices'],
+                     [10, 'examiners/disputes'],
+                     [11, 'examiners/rubric/new'],
+                     [12, 'examiners/stabs/main'] ],
+             middle: [],
+             right: [],
+             wide: [ ['wait', 'toolbox/generic/wait'],
+                     ['X', 'toolbox/grading/right/controls'],
+                     ['Y', nil],
+                     ['graph-1', nil],
+                     [3, 'examiners/rubric/details'] ] } 
+
+- if is_admin 
+  - layout[:left].push [1, 'admin/system-overview'], 
+                       ['X', nil]
+  - layout[:wide].push [1, nil], 
+                       [2, 'admin/accounts-in-country']
+
+!!!5
+
+%html{html_attrs}
+  %head 
+    = javascript_include_tag "application", "ad-ex"
+    %script{ type: "text/x-mathjax-config" } 
+      MathJax.Hub.Register.StartupHook("HTML-CSS Jax Ready", function() {
+      var VARIANT = MathJax.OutputJax["HTML-CSS"].FONTDATA.VARIANT ;
+      VARIANT["normal"].fonts.unshift("MathJax_SansSerif") ;
+      }) ;
+      MathJax.Hub.Config({
+      styles: {
+      "span.mtext" : { "font-size" : "14px" , "font-weight" : '300' }
+      }
+      }) ;
+    = javascript_include_tag "http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"
+    = stylesheet_link_tag "application", "ad-ex", "indie"
+    = csrf_meta_tag
+
+  %body 
+    = render partial: 'toolbox/generic/spinner'
+    .container-fluid 
+      #control-panel.g-panel.row-fluid{ marker: "#{user.id}" } 
+        .span12
+          .navbar.navbar-inverse
+            .navbar-inner
+              %a.brand.span4{ href: "#"}
+                = image_tag "logo-mit-beta-2.png"
+                #tagline= 'Partners in Practice'
+              %ul.nav.span8.pull-right
+                %li
+                  = simple_link for: 'Indie', icon: 'icon-star', id: 'a-indie-main'
+                %li
+                  = simple_link for: 'Schools', icon: 'icon-bell', id: 'a-grade-exams'
+                %li.dropdown
+                  = simple_link for: 'Workbench', as: :dropdown, id: 'm-admin-wb'
+                - if user.mentor_is_teacher
+                  %li
+                    = simple_button for: 'Sandbox Off', toggle: :button, class: 'btn btn-primary', id: 'btn-sandbox-toggle'
+                %li.dropdown
+                  = simple_link for: "Hello, #{user.first_name}", as: :dropdown, id: 'm-account'
+
+      #desktop.row-fluid
+        - layout.each do |pnl, child|
+          - width = pnl != :wide ? 'span4' : 'span7'
+          %div{ id: "#{pnl}", class: "g-panel #{width}" }
+            -# Add paginator 
+            = render partial: 'toolbox/custom/paginator', locals: { id: "#{pnl}-paginator", url: '#' }
+            -# Then, add the { left-, middle-, right-, wide- } as specified in layout
+            - child.each do |j|
+              %div{ id: "#{pnl}-#{j.first}" }
+                = render(partial: "#{j.last}") unless j.last.nil?
+
+    - for j in [:toolbox, :menus, :modals, :notifications]
+      = yield j

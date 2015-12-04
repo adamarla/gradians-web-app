@@ -1,0 +1,25 @@
+
+
+#fdb-main.hide.span11
+  .hide{ id: 'pending-scans' }
+
+  .row-fluid{ id: 'fdb-active-area' }
+    .span2{id: 'fdb-controls' }
+      .row-fluid.push-down
+        .btn-group.btn-group-vertical
+          = simple_button for: 'Hide', id: 'btn-hide-controls', kb: 'H', class: 'btn-success'
+      .row-fluid.push-down
+        .btn-group.btn-group-vertical
+          = simple_button for: 'Restore', id: 'btn-fresh-copy', tooltip: 'Restore original scan', kb: 'R'
+          = simple_button for: 'Write', tooltip: 'Add a Comment', id: 'btn-write', kb: 'W'
+          = simple_button for: 'Undo', tooltip: 'Undo Last', id: 'btn-undo', kb: 'U'
+          = simple_button for: 'Flip', tooltip: 'Flip Image', id: 'btn-rotate', kb: 'F'
+          = simple_button for: 'Re-upload', tooltip: 'Request a re-upload', id: 'btn-reupload', kb: 'L'
+          = simple_button for: 'Submit', tooltip: 'Submit', id: 'btn-submit', kb: 'S'
+      .row-fluid.push-down
+        .btn-group.btn-group-vertical{ id: 'fdb-nav' }
+          = simple_button for: 'Prev Pg', tooltip: 'Previous Scan', id: 'btn-prev-scan', kb: '['
+          = simple_button for: 'Prev Q', tooltip: 'Previous Question', id: 'btn-prev-ques', kb: '<'
+          = simple_button for: 'Next Q', tooltip: 'Next Question', id: 'btn-next-ques', kb: '>'
+          = simple_button for: 'Next Pg', tooltip: 'Next Scan', id: 'btn-next-scan', kb: ']'
+    .span9{ id: 'fdb-preview-area' }

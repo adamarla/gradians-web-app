@@ -1,0 +1,23 @@
+# == Schema Information
+#
+# Table name: grades
+#
+#  id             :integer         not null, primary key
+#  allotment      :float
+#  teacher_id     :integer
+#  created_at     :datetime
+#  updated_at     :datetime
+#  calibration_id :integer
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  allotment: 1
+  grade_description_id: 1
+  teacher_id: 1
+
+two:
+  allotment: 1
+  grade_description_id: 1
+  teacher_id: 1

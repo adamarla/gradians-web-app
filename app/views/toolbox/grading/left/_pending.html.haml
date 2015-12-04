@@ -1,0 +1,16 @@
+
+- sandboxed = !current_account.live?
+
+%ul.nav.nav-tabs
+  %li
+    = simple_link for: (sandboxed ? 'Sandbox' : 'Exams'), id: 'tab-grade-1', href: "#pane-grade-1", reload: true
+  %li
+    = simple_link for: "Questions", id: 'tab-grade-2', href: '#pane-grade-2', reload: :true
+  %li
+    = simple_link for: 'Grade', id: 'tab-grade-3', href: '#pane-grade-3', reload: :true
+
+.tab-content
+  #pane-grade-1.tab-pane
+  #pane-grade-2.tab-pane
+  #pane-grade-3.tab-pane.precious
+    = render partial: 'toolbox/grading/left/rubric'

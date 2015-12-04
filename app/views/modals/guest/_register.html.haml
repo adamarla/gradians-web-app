@@ -1,0 +1,21 @@
+
+- std = Student.new 
+- std.account = Account.new 
+
+#m-register.modal.regular.fade.row-fluid
+  .span3
+    = image_tag 'landing/backpack.png', class: 'big-icon', size: '70x70'
+  .span8
+    = simple_form_for std, url: register_student_path, validate: true,
+    defaults: { required: true, label: false }, html: { id: 'fm-student-regn' } do |f| 
+      .title= "Let's get started !"
+      .small-text.orange= "Students - please enter details below to register"
+      = f.input :name, hint: 'Full Name', wrapper_html: { class: 'push-down' }
+      = f.simple_fields_for :account, as: :account do |m|
+        = m.input :email, hint: 'E-mail'
+        = m.input :password, hint: 'Password'
+        = m.input :password_confirmation, hint: 'Re-confirm password'
+      %input{ type: :text, id: 'jaal', name: 'student[jaal]' }
+      %div  
+        %button.btn.btn-primary.btn-large{ type: :submit, id: 'btn-register'}= 'Submit'
+

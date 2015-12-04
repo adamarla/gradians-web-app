@@ -1,0 +1,17 @@
+
+-# The :up attribute on .dropdown-toggle is the number of levels UP 
+-# one needs to go from it to get to the * root * of the repeating 
+-# structure within which would be another (different) .dropdown-toggle
+-# This information is used to close one menu when another 'sibling' menu
+-# is clicked on
+
+-# A single line entry - with mandatory text and optional subtext 
+.row-fluid.line.leaf
+  .dropdown
+    %a.dropdown-toggle{ href: '#', data: { toggle: :dropdown } } 
+      %span.caret
+  .badge
+  .text
+  .subtext
+  .stopwatch
+

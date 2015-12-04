@@ -1,0 +1,37 @@
+
+- is_examiner = current_account.loggable_type == 'Examiner'
+
+#m-audit-form.modal.fade.wide
+  .row-fluid
+    .span2
+      = image_tag 'notifications/microscope.png'
+    .span9
+      = simple_form_for :audit, remote: true, defaults: { label: false, required: false } do |f|
+        .row-fluid
+          .span6
+            %p.heading= "Gating Issues"
+            = f.input :gating, as: :check_boxes, 
+              collection: ['Incorrect solution', 
+              'Solution hard to follow',
+              'Rubric missing', 
+              'Explanatory diagram a must',
+              'Question text imprecise',
+              'Video solution missing',
+              'Video solution not for this question',
+              'Grammatical errors in question/solution'] 
+          .span6
+            %p.heading= "Non-gating Issues"
+            = f.input :non_gating, as: :check_boxes, 
+              collection: ['Incorrect spellings', 
+              'Verbose question',
+              'Verbose solution',
+              'Has alternate solutions', 
+              'Rewrite as a multipart',
+              'Add explanatory diagram', 
+              'Should have multiple versions',
+              'Spelling errors in question/solution']
+        .row-fluid
+          = f.input :comments, as: :text, input_html: { rows: 5, cols: 60, class: 'span11' }, labels: false
+          %button.btn.btn-primary.btn-large.pull-left{ type: :submit }= "Submit"
+          - if is_examiner
+            %button.btn.btn-inverse.btn-large.pull-right{ type: :submit, id: 'btn-audit-allok' }= "All Good"

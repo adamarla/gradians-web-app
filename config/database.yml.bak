@@ -1,0 +1,11 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: webapp_dev
+  pool: 5
+  username: admin
+  password: admin
+  host: "hostname"
+  port: "port number"
+  database: "database name"
+
